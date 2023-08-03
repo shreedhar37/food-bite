@@ -1,5 +1,5 @@
 export const CDN_URL =
-  "https://png.pngtree.com/template/20191014/ourmid/pngtree-pin-food-delivery-map-location-delivery-logo-concept-image_318151.jpg";
+  "https://images-platform.99static.com/PGnEoKvzlz9NIR1QsJQ_iGob_gM=/500x500/top/smart/99designs-contests-attachments/57/57255/attachment_57255129";
 
 export const LOGO_URL =
   "https://res.cloudinary.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_660/";
