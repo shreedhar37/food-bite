@@ -77,7 +77,7 @@ const Body = () => {
                 setClicked(!isClicked);
 
                 const filteredRestaurant = restaurantsList.filter(
-                  (restaurant) => restaurant.info.avgRating >= 4.5
+                  (restaurant) => restaurant.info.avgRating >= 4.2
                 );
 
                 {

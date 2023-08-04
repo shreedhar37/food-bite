@@ -37,10 +37,10 @@ export const withOffer = (RestaurantCard) => {
     const offerString =
       props.restaurantdata.info.aggregatedDiscountInfoV3.header +
       " " +
-      props.restaurantdata.info.aggregatedDiscountInfoV3.subHeader;
+      props.restaurantdata.info.aggregatedDiscountInfoV3?.subHeader;
     return (
       <div className="hover:scale-105">
-        <label className="absolute font-bold bg-black text-white m-2 p-2 rounded-lg">
+        <label className="absolute font-bold bg-black text-white m-2 p-2">
           {offerString}
         </label>
         <RestaurantCard {...props} />
