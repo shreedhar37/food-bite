@@ -36,7 +36,7 @@ const RestaurantMenu = () => {
     <div className="text-center tracking-wider">
       <h1 className="font-bold my-6 text-2xl">{name}</h1>
       <p className="font-bold">
-        {cuisines.join(", ")} Rs.{costForTwo / 100} FOR TWO
+        {cuisines.join(", ").toUpperCase()} Rs.{costForTwo / 100} FOR TWO
       </p>
       {/** categories accordin */}
       {categories.map((category, index) => (
@@ -48,7 +48,9 @@ const RestaurantMenu = () => {
           showItems={index === showIndex ? true : false}
           index={index}
           showIndex={showIndex}
-          setShowIndex={() => setShowIndex(index)}
+          setShowIndex={() =>
+            index === showIndex ? setShowIndex(-1) : setShowIndex(index)
+          }
         />
       ))}
     </div>

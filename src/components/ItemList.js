@@ -23,16 +23,16 @@ const ItemList = ({ items }) => {
             </p>
           </div>
           <div className="w-3/12 p-4">
-            <div className="absolute">
-              <button className="p-1 mt-28 ml-12 bg-black text-white shadow-md border-black border-2 font-bold text-sm">
-                ADD +
-              </button>
-            </div>
             <img
               alt="food image"
               src={LOGO_URL + item.card.info.imageId}
               className="w-full mx-4"
             />
+            <div>
+              <button className="p-1 ml-12  bg-black text-white shadow-md border-black border-2 font-bold text-sm">
+                ADD +
+              </button>
+            </div>
           </div>
         </div>
       ))}
