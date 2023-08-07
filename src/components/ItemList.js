@@ -1,5 +1,13 @@
+import { useDispatch } from "react-redux";
 import { LOGO_URL } from "../utils/constant";
+import { addItem } from "../utils/cartSlice";
 const ItemList = ({ items }) => {
+  const dispatch = useDispatch();
+  const handleAddItem = (item) => {
+    //dispatch an action
+
+    dispatch(addItem(item));
+  };
   return (
     <div>
       {items.map((item) => (
@@ -29,7 +37,10 @@ const ItemList = ({ items }) => {
               className="w-full mx-4"
             />
             <div>
-              <button className="p-1 ml-12  bg-black text-white shadow-md border-black border-2 font-bold text-sm">
+              <button
+                className="p-2 ml-12  bg-black text-white shadow-md border-black border-2 font-bold text-sm"
+                onClick={() => handleAddItem(item)}
+              >
                 ADD +
               </button>
             </div>

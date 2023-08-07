@@ -26,13 +26,13 @@ const RestaurantCategory = ({
         >
           <span className="font-bold selection">
             {data.title} [{data.itemCards.length}]{" "}
-            {showItems ? "true" : "false"}
           </span>
           <span>{showItems ? <UpArrow /> : <RightArrow />}</span>
         </div>
+        {/** Accordin Body     */}
+
         {showItems && <ItemList items={data.itemCards} />}
       </div>
-      {/** Accordin Body     */}
     </div>
   );
 };
