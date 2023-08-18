@@ -6,7 +6,7 @@ import { useContext } from "react";
 
 import UserContext from "../utils/UserContext";
 
-import CartSvg from "../utils/cartSvg";
+import CartSvg from "../utils/CartSvg";
 import { useSelector } from "react-redux";
 
 const Header = () => {
