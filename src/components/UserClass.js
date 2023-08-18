@@ -13,7 +13,9 @@ class UserClass extends React.Component {
   }
 
   async componentDidMount() {
-    const data = await fetch("https://api.github.com/users/shreedhar37");
+    const data = await fetch("https://api.github.com/users/shreedhar37", {
+      mode: "cors",
+    });
 
     const json = await data.json();
 

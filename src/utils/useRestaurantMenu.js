@@ -10,7 +10,7 @@ const useRestaurantMenu = (restaurantID) => {
   }, []);
 
   const fetchData = async () => {
-    const data = await fetch(MENU_URL + restaurantID);
+    const data = await fetch(MENU_URL + restaurantID, { mode: "cors" });
     const json = await data.json();
     setRestaurantInfo(json.data);
   };
