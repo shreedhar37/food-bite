@@ -51,60 +51,55 @@ const Body = () => {
   return restaurantsList.length == 0 ? (
     <Shimmer />
   ) : (
-    <div className="body  m-2 p-2 ">
-      <div className="m-4 p-2">
-        <div className="flex">
-          <div className="mb-8 ml-1 px-3">
-            <input
-              type="text"
-              className="placeholder:font-black border border-solid border-black p-2  shadow-md "
-              placeholder="Search a restaurant"
-              onInput={(e) => {
-                const filteredRestaurant = restaurantsList.filter(
-                  (restaurant) =>
-                    restaurant.info.name
-                      .toLowerCase()
-                      .includes(e.target.value.toLowerCase())
-                );
-              }}
-            />
-          </div>
-          <div className="mb-8 ml-1 px-2">
-            <button
-              className="px-4 py-2 shadow-md font-black bg-black text-white"
-              onClick={() => {
-                // filter the restaurants based on ratings
-                setClicked(!isClicked);
-
-                const filteredRestaurant = restaurantsList.filter(
-                  (restaurant) => restaurant.info.avgRating >= 4.2
-                );
-
-                {
-                  isClicked
-                    ? setFilteredData(restaurantsList)
-                    : setFilteredData(filteredRestaurant);
-                }
-              }}
-            >
-              {isClicked ? "SHOW ALL" : "TOP RATED"}
-            </button>
-          </div>
+    <div className="body ml-8 p-2 ">
+      <div className="flex">
+        <div className="mb-8 ml-1 px-3">
+          <input
+            type="text"
+            className="placeholder:font-black border border-solid border-black p-2  shadow-md "
+            placeholder="Search a restaurant"
+            onInput={(e) => {
+              const filteredRestaurant = restaurantsList.filter((restaurant) =>
+                restaurant.info.name
+                  .toLowerCase()
+                  .includes(e.target.value.toLowerCase())
+              );
+            }}
+          />
         </div>
-        <div className="flex flex-wrap">
-          {filteredRestaurantsList.map((restaurant) => (
-            <Link
-              to={"/restaurants/" + restaurant.info.id}
-              key={restaurant.info.id}
-            >
-              {restaurant.info?.aggregatedDiscountInfoV3 ? (
-                <RestaurantCardOffer restaurantdata={restaurant} />
-              ) : (
-                <RestaurantCard restaurantdata={restaurant} />
-              )}
-            </Link>
-          ))}
+        <div className="mb-8 ml-1 px-2">
+          <button
+            className="px-4 py-2 shadow-md font-black bg-black text-white"
+            onClick={() => {
+              // filter the restaurants based on ratings
+              setClicked(!isClicked);
+
+              const filteredRestaurant = restaurantsList.filter(
+                (restaurant) => restaurant.info.avgRating >= 4.2
+              );
+
+              {
+                isClicked
+                  ? setFilteredData(restaurantsList)
+                  : setFilteredData(filteredRestaurant);
+              }
+            }}>
+            {isClicked ? "SHOW ALL" : "TOP RATED"}
+          </button>
         </div>
+      </div>
+      <div className="flex flex-wrap">
+        {filteredRestaurantsList.map((restaurant) => (
+          <Link
+            to={"/restaurants/" + restaurant.info.id}
+            key={restaurant.info.id}>
+            {restaurant.info?.aggregatedDiscountInfoV3 ? (
+              <RestaurantCardOffer restaurantdata={restaurant} />
+            ) : (
+              <RestaurantCard restaurantdata={restaurant} />
+            )}
+          </Link>
+        ))}
       </div>
     </div>
   );

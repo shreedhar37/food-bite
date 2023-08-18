@@ -8,7 +8,7 @@ const RestaurantCard = (props) => {
   const { cloudinaryImageId, name, cuisines, avgRatingString, sla } =
     restaurantdata?.info;
   return (
-    <div className="m-4  w-[250px]  shadow-md  bg-slate-50 hover:bg-gray-200  border-2 border-black">
+    <div className="m-4 w-[250px] shadow-md  bg-slate-50 hover:bg-gray-200  border-2 border-black">
       <div>
         <img
           className=" w-[250px] h-[250px]"
@@ -34,15 +34,26 @@ const RestaurantCard = (props) => {
 
 export const withOffer = (RestaurantCard) => {
   return (props) => {
-    const offerString =
-      props.restaurantdata.info.aggregatedDiscountInfoV3.header +
-      " " +
-      props.restaurantdata.info.aggregatedDiscountInfoV3?.subHeader;
-    return (
-      <div className="hover:scale-105">
+    const { header, subHeader } =
+      props.restaurantdata.info.aggregatedDiscountInfoV3;
+
+    const Label = () => {
+      if ((header === undefined) | (subHeader === undefined)) {
+        return <></>;
+      }
+
+      const offerString = header + " " + subHeader;
+
+      return (
         <label className="absolute font-bold bg-black text-white m-2 p-2">
           {offerString}
         </label>
+      );
+    };
+
+    return (
+      <div className="hover:scale-105">
+        <Label />
         <RestaurantCard {...props} />
       </div>
     );
